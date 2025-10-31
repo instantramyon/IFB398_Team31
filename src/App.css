@@ -1,42 +1,164 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  --font-size: 16px;
+
+  /*THEME COLORS */
+  --primary: #101828;              
+  --primary-foreground: #ffffff;
+  --accent: #e9ebef;
+  --accent-foreground: #101828;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+  --muted: #eceef2;
+  --muted-foreground: #6b7280;
+  --border: rgba(0, 0, 0, 0.08);
+  --background: #f9fafb;
+  --card: #ffffff;
+  --radius: 0.625rem;
+
+  /* Chart tones */
+  --chart-red: #e63946;
+  --chart-yellow: #fbbf24;
+  --chart-green: #10b981;
+  --chart-blue: #3b82f6;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body.dark {
+  --background: #111827;
+  --foreground: #f9fafb;
+  --card: #1f2937;
+  --primary: #f9fafb;
+  --primary-foreground: #111827;
+  --accent: #1f2937;
+  --accent-foreground: #f9fafb;
+  --border: rgba(255, 255, 255, 0.1);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*BASE STYLES */
+html {
+  font-size: var(--font-size);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+h1, h2, h3, h4 {
+  font-weight: 500;
+  line-height: 1.5;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+
+p, label, button, input {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*CARDS */
 .card {
-  padding: 2em;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-.read-the-docs {
-  color: #888;
+/* BUTTONS */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+.btn-primary:hover {
+  background-color: color-mix(in oklab, var(--primary) 80%, black);
+}
+
+header .btn-outline-secondary {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--primary-foreground); 
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-weight: 500;
+}
+
+header .btn-outline-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: var(--primary-foreground);            
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* NAVBAR / HEADER */
+header {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+header h5,
+header small {
+  color: var(--primary-foreground);
+}
+header .btn-outline-secondary {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--primary-foreground);
+}
+header .btn-outline-secondary:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* NAV TABS */
+.nav-tabs {
+  border-bottom: 1px solid var(--border);
+}
+.nav-tabs .nav-link {
+  border: none;
+  color: var(--muted-foreground);
+  background: transparent;
+  font-weight: 500;
+}
+.nav-tabs .nav-link.active {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* BADGES */
+.badge {
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+}
+
+/*  DROPDOWN MENU  */
+.dropdown-menu {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* TABLES */
+.table-light {
+  background-color: var(--secondary);
+}
+.table > :not(caption) > * > * {
+  background-color: var(--card);
+}
+
+/*  PROGRESS BAR */
+.progress {
+  height: 6px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-bar {
+  background-color: var(--chart-blue);
+}
+
+/* SMOOTH TRANSITIONS  */
+body, .card, .btn, .nav-link, .badge, header {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
