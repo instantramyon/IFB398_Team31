@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Container, Row, Col, Card, Button, Form, Tabs, Tab, Alert} from 'react-bootstrap';
 import { Shield, Mail, Lock, User, Building2} from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export default function Login({ onLogin }) {
   const [activeTab, setActiveTab] = useState('login');
@@ -31,6 +32,7 @@ export default function Login({ onLogin }) {
         };
         localStorage.setItem('data_user', JSON.stringify(user));
         onLogin(user);
+        navigate("/dashboard");
       } else {
         setError('Please enter both email and password');
       }
@@ -41,7 +43,7 @@ export default function Login({ onLogin }) {
   // Handle Signup
   const handleSignup = (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     if (!signupName || !signupEmail || !signupOrganization || !signupPassword || !signupConfirmPassword) {
       setError('Please fill in all fields');
@@ -68,6 +70,7 @@ export default function Login({ onLogin }) {
       };
       localStorage.setItem('data_user', JSON.stringify(user));
       onLogin(user);
+      navigate("/dashboard");
       setIsLoading(false);
     }, 1000);
   };

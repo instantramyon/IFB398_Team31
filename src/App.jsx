@@ -1,5 +1,6 @@
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login.jsx';
+import Step2Analysis from './pages/Step2Analysis.jsx';
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Dropdown, Badge, Spinner, Nav, Navbar} from "react-bootstrap";
 import { Shield, FileText, BarChart3, Settings, LogOut, User,} from "lucide-react";
@@ -33,6 +34,7 @@ function App() {
     localStorage.removeItem("data_user");
     setUser(null);
     setAssessmentData(null);
+    Navigate("/login", { replace: true });
   };
 
   if (isLoading) {
@@ -215,12 +217,12 @@ function MainLayout({ user, onLogout, assessmentData, setAssessmentData }) {
                 onNavigateToResults={() => navigate("/data-practices")}
               />
             }
-          />
+          />*/}
           <Route
             path="/data-practices"
-            element={<DataPracticesOverview assessmentData={assessmentData} />}
+            element={<Step2Analysis assessmentData={assessmentData} />}
           />
-          <Route
+          {/*<Route
             path="/policy-templates"
             element={<PolicyTemplates assessmentData={assessmentData} />}
           />
