@@ -1,7 +1,7 @@
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login.jsx';
 import Step2Analysis from './pages/Step2Analysis.jsx';
-import Step1Questions from './pages/Step1Questions.jsx';
+import Step1Questions from './pages/Step1Questions.jsx'
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Dropdown, Badge, Spinner, Nav, Navbar} from "react-bootstrap";
 import { Shield, FileText, BarChart3, Settings, LogOut, User,} from "lucide-react";
