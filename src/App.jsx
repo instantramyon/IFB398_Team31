@@ -1,11 +1,12 @@
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login.jsx';
 import Step2Analysis from './pages/Step2Analysis.jsx';
+import Step1Questions from './pages/Step1Questions.jsx';
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Dropdown, Badge, Spinner, Nav, Navbar} from "react-bootstrap";
 import { Shield, FileText, BarChart3, Settings, LogOut, User,} from "lucide-react";
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate, useNavigate} from "react-router-dom";
-import './App.css'
+import './App.css';
 
 function App() {
   const [assessmentData, setAssessmentData] = useState(null);
@@ -209,15 +210,15 @@ function MainLayout({ user, onLogout, assessmentData, setAssessmentData }) {
             path="/dashboard"
             element={<Dashboard assessmentData={assessmentData} />}
           />
-          {/* <Route
+          <Route
             path="/assessment"
             element={
-              <AssessmentWizard
+              <Step1Questions
                 onAssessmentComplete={setAssessmentData}
                 onNavigateToResults={() => navigate("/data-practices")}
               />
             }
-          />*/}
+          />
           <Route
             path="/data-practices"
             element={<Step2Analysis assessmentData={assessmentData} />}
